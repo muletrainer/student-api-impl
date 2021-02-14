@@ -1,0 +1,94 @@
+#%RAML 1.0
+title: students-raml
+baseUri: http://ittrainer.in/api
+protocols:
+  - HTTP
+  - HTTPS
+version: 1.0
+mediaType: 
+  - application/json
+description: It is about the Students Service. update the service to next version.
+
+/student:
+  get:
+    description:  Retrives all the students
+    queryParameters:
+      format:
+        type: string
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            type: array
+            items:
+              properties:
+                sno: integer
+                sname:
+                  type: string
+                  required: false
+                  example:
+                    value: kishore
+                m1?: integer
+                m2:
+                  type: integer
+                  required: true
+                  example:
+                    value: 12
+                m3?: integer
+            example:
+              value: [
+                {
+                  sno: 101,
+                  sname: "Kishore",
+                  m1: 101,
+                  m2: 201,
+                  m3: 201
+                }
+              ]
+                
+              
+      
+  post:
+    description: this is to create the students
+  
+  /{studentId}:
+    get:
+      description:  Retrives all the students
+      queryParameters:
+        format:
+          type: string
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+              properties:
+                sno: integer
+                sname:
+                  type: string
+                  required: false
+                  example:
+                    value: kishore
+                m1?: integer
+                m2:
+                  type: integer
+                  required: true
+                  example:
+                    value: 12
+              example:
+                value:
+                  {
+                    sno: 101,
+                    sname: "Kishore",
+                    m1: 101,
+                    m2: 201
+                    
+                  }
+                  
+              
+                
+    put:
+    
+
